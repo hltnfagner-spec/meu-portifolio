@@ -38,7 +38,31 @@ header nav a:hover {
     color: #f39c12;
 }
 
-/* Seções */
+/* Seção Sobre (Formatação da Foto e Texto) */
+.sobre-conteudo {
+    display: flex;
+    align-items: center; /* Alinha verticalmente foto e texto */
+    gap: 2.5rem; /* Espaço entre foto e texto */
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.foto-perfil {
+    width: 180px; /* Largura da foto */
+    height: 180px; /* Altura da foto (igual a largura para ser círculo) */
+    border-radius: 50%; /* Torna a foto redonda */
+    object-fit: cover; /* Garante que a imagem preencha o círculo sem distorcer */
+    border: 5px solid #f39c12; /* Borda laranja */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.sobre-texto {
+    flex: 1; /* Faz o texto ocupar o espaço restante */
+}
+
+/* Seções Gerais */
 section {
     padding: 3rem 2rem;
     max-width: 1000px;
@@ -95,7 +119,7 @@ footer {
 }
 
 /* Responsividade Básica para Mobile */
-@media (max-width: 600px) {
+@media (max-width: 768px) {
     header {
         flex-direction: column;
         gap: 1rem;
@@ -105,5 +129,16 @@ footer {
         flex-direction: column;
         text-align: center;
         gap: 0.5rem;
+    }
+
+    .sobre-conteudo {
+        flex-direction: column; /* Empilha foto e texto no celular */
+        text-align: center;
+        gap: 1.5rem;
+    }
+
+    .foto-perfil {
+        width: 150px;
+        height: 150px;
     }
 }
