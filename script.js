@@ -4,11 +4,11 @@ const projetos = [
         titulo: "MVP - Portfólio Profissional",
         descricao: "Desenvolvimento da primeira versão do meu portfólio profissional como desenvolvedor de sistemas. Este projeto demonstra competências em HTML5 semântico, estilização com CSS3 (Flexbox/Grid) e manipulação dinâmica de elementos via JavaScript.",
         // Substitua o link abaixo pelo link do seu repositório ou do site no ar
-        link: "https://github.com/SEU-UTILIZADOR/NOME-DO-REPOSITORIO" 
+        link: "https://hltnfagner-spec.github.io/meu-portifolio/" 
     }
 ];
 
-// Seleciona a div onde o projeto será renderizado
+// Div onde o projeto será renderizado
 const listaProjetos = document.getElementById('lista-projetos');
 
 // Limpa a lista e renderiza apenas o MVP
