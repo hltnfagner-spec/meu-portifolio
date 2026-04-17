@@ -1,4 +1,4 @@
-/* Reset básico */
+/* Tirando as margens padrão do navegador pra não quebrar o layout */
 * {
     margin: 0;
     padding: 0;
@@ -12,7 +12,7 @@ body {
     line-height: 1.6;
 }
 
-/* Cabeçalho usando Flexbox */
+/* Usando flexbox no header pra deixar a logo de um lado e o menu do outro */
 header {
     background-color: #2c3e50;
     color: #fff;
@@ -38,35 +38,11 @@ header nav a:hover {
     color: #f39c12;
 }
 
-/* Seção Sobre (Formatação da Foto e Texto) */
-.sobre-conteudo {
-    display: flex;
-    align-items: center; /* Alinha verticalmente foto e texto */
-    gap: 2.5rem; /* Espaço entre foto e texto */
-    background-color: #fff;
-    padding: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-}
-
-.foto-perfil {
-    width: 180px; /* Largura da foto */
-    height: 180px; /* Altura da foto (igual a largura para ser círculo) */
-    border-radius: 50%; /* Torna a foto redonda */
-    object-fit: cover; /* Garante que a imagem preencha o círculo sem distorcer */
-    border: 5px solid #f39c12; /* Borda laranja */
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-}
-
-.sobre-texto {
-    flex: 1; /* Faz o texto ocupar o espaço restante */
-}
-
-/* Seções Gerais */
+/* Centralizando o conteúdo da página */
 section {
     padding: 3rem 2rem;
     max-width: 1000px;
-    margin: 0 auto;
+    margin: 0 auto; 
 }
 
 h2 {
@@ -75,13 +51,41 @@ h2 {
     color: #2c3e50;
 }
 
-/* Grid de Projetos */
+/* Usando flexbox pra foto ficar do lado do texto no PC */
+.sobre-container {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    background: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+/* Deixando a foto redondinha */
+.foto-perfil img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #2c3e50;
+}
+
+.sobre-texto p {
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    text-align: justify;
+}
+
+/* Usando Grid para organizar os cards dos projetos lado a lado */
 .grid-projetos {
     display: grid;
+    /* O auto-fit ajuda a jogar os cards pra baixo se a tela diminuir */
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 1.5rem;
 }
 
+/* Estilo do card e efeitinho de subir quando passa o mouse (hover) */
 .projeto-card {
     background-color: #fff;
     padding: 1.5rem;
@@ -118,8 +122,22 @@ footer {
     margin-top: 2rem;
 }
 
-/* Responsividade Básica para Mobile */
+/* Ajustes para a tela do celular (Responsividade) */
 @media (max-width: 768px) {
+    /* No celular, muda a direção do flexbox pra foto ficar em cima do texto */
+    .sobre-container {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .foto-perfil img {
+        width: 150px;
+        height: 150px;
+    }
+}
+
+@media (max-width: 600px) {
+    /* Empilha os itens do menu no celular */
     header {
         flex-direction: column;
         gap: 1rem;
@@ -129,16 +147,5 @@ footer {
         flex-direction: column;
         text-align: center;
         gap: 0.5rem;
-    }
-
-    .sobre-conteudo {
-        flex-direction: column; /* Empilha foto e texto no celular */
-        text-align: center;
-        gap: 1.5rem;
-    }
-
-    .foto-perfil {
-        width: 150px;
-        height: 150px;
     }
 }
