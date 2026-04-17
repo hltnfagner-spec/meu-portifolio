@@ -1,52 +1,33 @@
-// Array de objetos contendo os projetos
+// Array contendo apenas o projeto do MVP
 const projetos = [
     {
-        titulo: "Sistema de Gestão para Apicultura",
-        descricao: "Plataforma web planejada para auxiliar o controle de colmeias e produção de mel na associação local.",
-        link: "#"
-    },
-    {
-        titulo: "Landing Page Corporativa",
-        descricao: "Página de captura de leads desenvolvida com HTML, CSS e Flexbox para um negócio local.",
-        link: "#"
-    },
-    {
-        titulo: "Calculadora de Insumos",
-        descricao: "Aplicativo em JavaScript para calcular proporções de insumos agrícolas e ração.",
-        link: "#"
+        titulo: "MVP - Portfólio Profissional",
+        descricao: "Desenvolvimento da primeira versão do meu portfólio profissional como desenvolvedor de sistemas. Este projeto demonstra competências em HTML5 semântico, estilização com CSS3 (Flexbox/Grid) e manipulação dinâmica de elementos via JavaScript.",
+        // Substitua o link abaixo pelo link do seu repositório ou do site no ar
+        link: "https://github.com/SEU-UTILIZADOR/NOME-DO-REPOSITORIO" 
     }
 ];
 
-// Seleciona a div onde os projetos serão renderizados
+// Seleciona a div onde o projeto será renderizado
 const listaProjetos = document.getElementById('lista-projetos');
 
-// Função para renderizar os projetos dinamicamente
+// Limpa a lista e renderiza apenas o MVP
+listaProjetos.innerHTML = '';
+
 function renderizarProjetos() {
     projetos.forEach(projeto => {
-        // Cria os elementos HTML
         const divCard = document.createElement('div');
         divCard.classList.add('projeto-card');
 
-        const h3 = document.createElement('h3');
-        h3.textContent = projeto.titulo;
+        divCard.innerHTML = `
+            <h3>${projeto.titulo}</h3>
+            <p>${projeto.descricao}</p>
+            <a href="${projeto.link}" target="_blank">Ver Repositório</a>
+        `;
 
-        const p = document.createElement('p');
-        p.textContent = projeto.descricao;
-
-        const a = document.createElement('a');
-        a.href = projeto.link;
-        a.textContent = "Ver Projeto";
-        a.target = "_blank";
-
-        // Monta o card
-        divCard.appendChild(h3);
-        divCard.appendChild(p);
-        divCard.appendChild(a);
-
-        // Adiciona o card à lista na tela
         listaProjetos.appendChild(divCard);
     });
 }
 
-// Executa a função quando a página carrega
+// Executa a função
 renderizarProjetos();
